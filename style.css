@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --not-started-color: #ffe3e3;
+  --in-prgress-color: #d0ebff;
+  --completed-color: #d3f9d8;
+
+  --not-started-over-color: #fa525287;
+  --in-prgress-over-color: #228be678;
+  --completed-over-color: #40c0577f;
+
+  --background-not-started: #fff5f5;
+  --background-in-progress: #e7f5ff;
+  --background-completed: #ebfbee;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+
+  justify-content: center;
+  background-image: url(https://images.unsplash.com/photo-1644329843491-99edfc83de04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.board {
+  padding: 30px 20px;
+}
+
+.todo-form {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.todo-form .todo-input {
+  border: 0;
+  padding: 5px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 16px;
+}
+
+.todo-form .todo-input:focus {
+  outline: 0;
+}
+
+.todo-form button {
+  border: 0;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.13s;
+  -webkit-transition: all 0.13s;
+  -moz-transition: all 0.13s;
+  -ms-transition: all 0.13s;
+  -o-transition: all 0.13s;
+}
+
+.todo-form button:active {
+  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+  -moz-transform: scale(0.98);
+  -ms-transform: scale(0.98);
+  -o-transform: scale(0.98);
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.container .task-box {
+  width: 253px;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.container .task-box:first-child {
+  background-color: var(--not-started-color);
+  border: 3px solid var(--background-not-started);
+}
+.container .task-box:nth-child(2) {
+  background-color: var(--in-prgress-color);
+  border: 3px solid var(--background-in-progress);
+}
+.container .task-box:last-child {
+  background-color: var(--completed-color);
+  border: 3px solid var(--background-completed);
+}
+.container .task-box.over:first-child {
+  border: 3px solid var(--not-started-over-color);
+}
+.container .task-box.over:nth-child(2) {
+  border: 3px solid var(--in-prgress-over-color);
+}
+.container .task-box.over:last-child {
+  border: 3px solid var(--completed-over-color);
+}
+.container .task-box .task-box {
+  position: relative;
+}
+
+.container .task-box h3 {
+  margin-bottom: 20px;
+}
+.task {
+  position: relative;
+  background-color: #fff;
+  padding: 5px 40px 5px 5px;
+  border-radius: 4px;
+  font-size: 17px;
+  text-align: left;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  transition: all 0.3s;
+  cursor: move;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.task-icon {
+  position: absolute;
+  font-size: 15px;
+  cursor: pointer;
+}
+.edit-icon {
+  right: 10%;
+  top: 20%;
+  color: #228be6;
+}
+.trash-icon {
+  color: #fa5252;
+  right: 2%;
+  top: 20%;
+}
+.task.is_dragging {
+  transform: scale(1.05);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0, 25);
+  background-color: rgb(50, 50, 50);
+  color: #fff;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+.container .task-box .task:focus {
+  outline: 0;
+}
+.container .task-box .task:not(:last-child) {
+  margin-bottom: 15px;
+}
